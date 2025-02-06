@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Mart - Modern E-Commerce</title>
+    <style>
+       
+        :root {
+            --primary-color: #ff3f6c;
+            --secondary-color: #232f3e;
+            --accent-color: #ffd700;
+            --text-dark: #2d2d2d;
+            --text-light: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: var(--text-dark);
+        }
+
+        
+        header {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: -1px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1486401899868-0e435ed85128') center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 8rem 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: slideUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: slideUp 1s ease 0.2s backwards;
+        }
+
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 3rem 0;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 0.5rem auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-card h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .price del {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .deal-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent-color);
+            color: var(--text-dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: #ff1f4a;
+            transform: scale(1.05);
+        }
+
+        
+        #contact {
+            background: var(--secondary-color);
+            color: var(--text-light);
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        .footer {
+            background: var(--secondary-color);
+            color: var(--text-light);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MY MART 🛍</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Discover Amazing Products</h2>
+        <p>Shop the latest trends with exclusive discounts</p>
+    </section>
+
+    
+    <section id="products">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid">
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97" alt="Smartphone">
+                <div class="product-content">
+                    <h3>Smartphone X</h3>
+                    <p>Latest smartphone with advanced features and 48MP camera</p>
+                    <p class="price">INR.60600</p>
+                    <button>Add to Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853" alt="Laptop">
+                <div class="product-content">
+                    <h3>Laptop Pro</h3>
+                    <p>High-performance laptop with 16GB RAM and 1TB SSD</p>
+                    <p class="price">INR.112550</p>
+                    <button>Add to Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" alt="Headphones">
+                <div class="product-content">
+                    <h3>Wireless Headphones</h3>
+                    <p>Noise-cancelling headphones with 30hr battery life</p>
+                    <p class="price">INR.17310</p>
+                    <button>Add to Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="Smart Watch">
+                <div class="product-content">
+                    <h3>Smart Watch</h3>
+                    <p>Health tracking smartwatch with AMOLED display</p>
+                    <p class="price">INR.21645</p>
+                    <button>Add to Cart</button>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    
+    <section id="deals">
+        <h2 class="section-title">Today's Hot Deals</h2>
+        <div class="products-grid">
+            <article class="product-card">
+                <span class="deal-badge">30% OFF</span>
+                <img src="https://images.unsplash.com/photo-1592750475338-74b7b2105abf" alt="Gaming Console">
+                <div class="product-content">
+                    <h3>Gaming Console Pro</h3>
+                    <p>Next-gen gaming console with 4K HDR support</p>
+                    <p class="price"><del>INR.51945</del>INR.36360</p>
+                    <button>Grab Deal</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <span class="deal-badge">25% OFF</span>
+                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0" alt="Tablet">
+                <div class="product-content">
+                    <h3>Tablet Z</h3>
+                    <p>10.5" Tablet with stylus support and 128GB storage</p>
+                    <p class="price"><del>INR.34630</del>INR.25970</p>
+                    <button>Grab Deal</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <span class="deal-badge">15% OFF</span>
+                <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3" alt="Camera">
+                <div class="product-content">
+                    <h3>4K Camera</h3>
+                    <p>Professional mirrorless camera with 4K video</p>
+                    <p class="price"><del>INR.77920</del> INR.66230</p>
+                    <button>Grab Deal</button>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    
+    <section id="contact">
+        <div class="contact-form">
+            <h2 class="section-title" style="color: var(--text-light);">Contact Us</h2>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 My Mart. Premium E-Commerce Experience</p>
+    </footer>
+</body>
+</html>
