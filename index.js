@@ -17,7 +17,7 @@ function addToCart(productName, price, image) {
             quantity: 1
         });
     }
-    
+
     updateCartCount();
     updateCartModal();
     showSuccessMessage(`${productName} added to cart!`);
