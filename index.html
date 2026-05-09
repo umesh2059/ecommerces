@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Mart - Modern E-Commerce</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js"></script>
+</head>
+<body>
+    <header>
+        <h1>MY MART 🛍</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#deals">Deals</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="login-btn" onclick="openModal('loginModal')">Login</button>
+            <button onclick="openModal('signupModal')">Sign Up</button>
+            <button class="cart-btn" onclick="openModal('cartModal')">🛒 <span id="cartCount">0</span></button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Discover Amazing Products</h2>
+        <p>Shop the latest trends with exclusive discounts</p>
+    </section>
+
+    
+    <section id="products">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-grid">
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97" alt="Smartphone">
+                <div class="product-content">
+                    <h3>Smartphone X</h3>
+                    <p>Latest smartphone with advanced features and 48MP camera</p>
+                    <p class="price">INR.60600</p>
+                    <button onclick="addToCart('Smartphone X', 60600, 'https://images.unsplash.com/photo-1598327105666-5b89351aff97')">Add to Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853" alt="Laptop">
+                <div class="product-content">
+                    <h3>Laptop Pro</h3>
+                    <p>High-performance laptop with 16GB RAM and 1TB SSD</p>
+                    <p class="price">INR.112550</p>
+                    <button onclick="addToCart('Laptop Pro', 112550, 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853')">Add to Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" alt="Headphones">
+                <div class="product-content">
+                    <h3>Wireless Headphones</h3>
+                    <p>Noise-cancelling headphones with 30hr battery life</p>
+                    <p class="price">INR.17310</p>
+                    <button onclick="addToCart('Wireless Headphones', 17310, 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e')">Add to Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="Smart Watch">
+                <div class="product-content">
+                    <h3>Smart Watch</h3>
+                    <p>Health tracking smartwatch with AMOLED display</p>
+                    <p class="price">INR.21645</p>
+                    <button onclick="addToCart('Smart Watch', 21645, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30')">Add to Cart</button>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    
+    <section id="deals">
+        <h2 class="section-title">Today's Hot Deals</h2>
+        <div class="products-grid">
+            <article class="product-card">
+                <span class="deal-badge">30% OFF</span>
+                <img src="image.png" alt="Gaming Console">
+                <div class="product-content">
+                    <h3>Gaming Console Pro</h3>
+                    <p>Next-gen gaming console with 4K HDR support</p>
+                    <p class="price"><del>INR.51945</del>INR.36360</p>
+                    <button onclick="addToCart('Gaming Console Pro', 36360, 'image.png')">Grab Deal</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <span class="deal-badge">25% OFF</span>
+                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0" alt="Tablet">
+                <div class="product-content">
+                    <h3>Tablet Z</h3>
+                    <p>10.5" Tablet with stylus support and 128GB storage</p>
+                    <p class="price"><del>INR.34630</del>INR.25970</p>
+                    <button onclick="addToCart('Tablet Z', 25970, 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0')">Grab Deal</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <span class="deal-badge">15% OFF</span>
+                <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3" alt="Camera">
+                <div class="product-content">
+                    <h3>4K Camera</h3>
+                    <p>Professional mirrorless camera with 4K video</p>
+                    <p class="price"><del>INR.77920</del> INR.66230</p>
+                    <button onclick="addToCart('4K Camera', 66230, 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3')">Grab Deal</button>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    
+    <section id="contact">
+        <div class="contact-form">
+            <h2 class="section-title" style="color: var(--text-light);">Contact Us</h2>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 My Mart. Premium E-Commerce Experience</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('loginModal')">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Login</h2>
+            <form class="auth-form" id="loginForm" onsubmit="return validateLoginForm(event)">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <div class="error-message" id="loginEmailError">Please enter a valid email</div>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <div class="error-message" id="loginPasswordError">Password must be at least 6 characters</div>
+                <button type="submit">Login</button>
+            </form>
+            <div class="auth-links">
+                <p>Don't have an account? <a href="#" onclick="switchModal('loginModal', 'signupModal')">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('signupModal')">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Sign Up</h2>
+            <form class="auth-form" id="signupForm" onsubmit="return validateSignupForm(event)">
+                <input type="text" id="signupName" placeholder="Full Name" required>
+                <div class="error-message" id="signupNameError">Name must be at least 2 characters</div>
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <div class="error-message" id="signupEmailError">Please enter a valid email</div>
+                <input type="password" id="signupPassword" placeholder="Password" required>
+                <div class="error-message" id="signupPasswordError">Password must be at least 6 characters</div>
+                <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+                <div class="error-message" id="signupConfirmPasswordError">Passwords do not match</div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <div class="auth-links">
+                <p>Already have an account? <a href="#" onclick="switchModal('signupModal', 'loginModal')">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('cartModal')">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Your Cart</h2>
+            <div id="cartItems" class="cart-items">
+                <!-- Cart items will be added here dynamically -->
+            </div>
+            <div class="cart-total">
+                <p>Total: <span id="cartTotal">INR.0</span></p>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Popup -->
+    <div id="successPopup" class="success-popup">
+        <span id="successMessage"></span>
+    </div>
+
+ 
+</body>
+</html>
